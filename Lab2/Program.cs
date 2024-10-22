@@ -32,11 +32,11 @@ public class Program
         //program.Task_2_2(5, 1, 3, 1);
         //program.Task_2_3(10);
         //program.Task_2_4(5, 1, 2);
-        //program.Task_2_5(10, 30);
+        //program.Task_2_5(10, 25.2);
         //program.Task_2_6(5);
         //program.Task_2_7(5);
         //program.Task_2_8(5);
-        //program.Task_2_9(10);
+        //program.Task_2_9(6);
         //program.Task_2_10(10);
         //program.Task_2_11(10);
         //program.Task_2_12(10, 0);
@@ -52,7 +52,7 @@ public class Program
         //program.Task_3_7();
         //program.Task_3_8();
         //program.Task_3_9();
-        //program.Task_3_10();
+        program.Task_3_10();
         //program.Task_3_11();
         //program.Task_3_12(10, 0);
         //program.Task_3_13(10, 5, 0);
@@ -326,11 +326,11 @@ public class Program
 
         // code here
         
-        for (int i = 0; i < n; i++)
+        for (int i = 1; i <= n; i++)
         {
             double res;
             double.TryParse(Console.ReadLine(), out res);
-            if (res >= norm) { answer++; }
+            if (res <= norm) { answer++; }
 
         }
         Console.WriteLine(answer);
@@ -349,7 +349,8 @@ public class Program
             double.TryParse(Console.ReadLine(), out x);
             double y;
             double.TryParse(Console.ReadLine(), out y);
-            if (((0 <= x) && (x <= Math.PI)) && ((0 <= y) && (y <= 1))) { answer++;}            
+            
+            if (((0 <= x) && (x <= Math.PI)) && ((0 <= y) && (y <= Math.Sin(x)))) { answer++;}            
         }
         Console.WriteLine(answer);
         // end
@@ -424,12 +425,12 @@ public class Program
         double answer = double.MaxValue;
 
         // code here
-        double maxx = 0;
+        double maxx = 10000000;
         for (int i = 1; i <= n; i++)
         {
             double res;
             double.TryParse(Console.ReadLine(), out res);
-            if (res > maxx)
+            if (res < maxx)
             {
                 maxx = res;
             }
@@ -566,19 +567,27 @@ public class Program
         int n = 0;
 
         // code here
-        int.TryParse(Console.ReadLine(), out n);
         double general = 0;
-        for (int i = 0; i < n; i++)
+        while(true)
         {
-            double x;
-            double.TryParse(Console.ReadLine(), out x);
-            general = general + x;
+            string input = Console.ReadLine();
+            if (string.IsNullOrEmpty(input))
+            {
+                break;
+            }
+            if (double.TryParse(input, out double x))
+            {
+                general += x;
+                n++;
+            }
+            
+            
         }
         answer = general / n;
         Console.WriteLine(answer);
         // end
 
-        // answer should be equal to the task_2_1 answer
+        
         return answer;
     }
     public int Task_3_2(double r, double a, double b)
@@ -604,25 +613,36 @@ public class Program
     }
     public int Task_3_4(double r1, double r2)
     {
-        int answer = 0, n = 0;
+        int answer = 0;
 
-        // code here
-        int.TryParse(Console.ReadLine(), out n);
-        for (int i = 0; i < n; i++)
+        Console.WriteLine("Введите координаты (x, y) точек. Окончите ввод пустой строкой:");
+        while (true)
         {
-            double x;
-            double.TryParse(Console.ReadLine(), out x);
-            double y;
-            double.TryParse(Console.ReadLine(), out y);
-            if (((Math.Pow(x, 2) + Math.Pow(y, 2) >= Math.Pow(r1, 2)) && (Math.Pow(x, 2) + Math.Pow(y, 2) <= Math.Pow(r2, 2))))
+            string input1 = Console.ReadLine();
+            string input2 = Console.ReadLine();
+
+            if (string.IsNullOrEmpty(input1) || string.IsNullOrEmpty(input2))
             {
-                answer++;
+                break; 
+            }
+
+           if (double.TryParse(input1, out double x) && double.TryParse(input2, out double y))
+           {
+                double distanceSquared = Math.Pow(x, 2) + Math.Pow(y, 2);
+
+                if (distanceSquared >= Math.Pow(r1, 2) && distanceSquared <= Math.Pow(r2, 2))
+                {
+                    answer++; 
+                }
+           }
+            else
+            {
+                Console.WriteLine("Ошибка ввода. Пожалуйста, введите действительные координаты.");
             }
         }
-        Console.WriteLine(answer);
-        // end
 
-        return answer;
+        Console.WriteLine($"Количество точек, находящихся между окружностями: {answer}");
+        return answer; // Возвращаем ответ
     }
     public int Task_3_5(double norm)
     {
@@ -649,32 +669,39 @@ public class Program
         int answer1 = 0, answer3 = 0, n = 0;
 
         // code here
-        int.TryParse(Console.ReadLine(), out n);
-        for (int i = 0; i < n; i++)
+        while (true)
         {
-            double x;
-            double.TryParse(Console.ReadLine(), out x);
-            double y;
-            double.TryParse(Console.ReadLine(), out y);
-            if (x > 0 && y > 0)
+            string input1 = Console.ReadLine();
+            string input2 = Console.ReadLine();
+
+            if (string.IsNullOrEmpty(input1) || string.IsNullOrEmpty(input2))
             {
-                Console.WriteLine("Первый квадрант");
-                answer1++;
+                break;
             }
-            else if (x < 0 && y > 0)
+
+            if (double.TryParse(input1, out double x) && double.TryParse(input2, out double y))
             {
-                Console.WriteLine("Второй квадрант");
+                if (x > 0 && y > 0)
+                {
+                    Console.WriteLine("Первый квадрант");
+                    answer1++;
+                }
+                else if (x < 0 && y > 0)
+                {
+                    Console.WriteLine("Второй квадрант");
+                }
+                else if (x < 0 && y < 0)
+                {
+                    Console.WriteLine("Третий квадрант");
+                    answer3++;
+                }
+                else if (x > 0 && y < 0)
+                {
+                    Console.WriteLine("Четвертый квадрант");
+                }
             }
-            else if (x < 0 && y < 0)
-            {
-                Console.WriteLine("Третий квадрант");
-                answer3++;
-            }
-            else if (x > 0 && y < 0)
-            {
-                Console.WriteLine("Четвертый квадрант");
-            }
-        }
+
+          }
         Console.WriteLine(answer1);
         Console.WriteLine(answer3);
         // end
@@ -708,23 +735,28 @@ public class Program
         int answer = 0, n = 0;
 
         // code here;
-        int.TryParse(Console.ReadLine(), out n);
-        for (int i = 1; i <= n; i++)
+        
+        while (true)
         {
-            Console.WriteLine($"Введите оценки ученикa номер {i}:");
-            double rate1;
-            double.TryParse(Console.ReadLine(), out rate1);
-            double rate2;
-            double.TryParse(Console.ReadLine(), out rate2);
-            double rate3;
-            double.TryParse(Console.ReadLine(), out rate3);
-            double rate4;
-            double.TryParse(Console.ReadLine(), out rate4);
-            if ((rate1 != 2) && (rate2 != 2) && (rate3 != 2) && (rate4 != 2))
+            string input1 = Console.ReadLine();
+            string input2 = Console.ReadLine();
+            string input3 = Console.ReadLine();
+            string input4 = Console.ReadLine();
+
+            if (string.IsNullOrEmpty(input1) || string.IsNullOrEmpty(input2) || string.IsNullOrEmpty(input3) || string.IsNullOrEmpty(input4))
             {
-                if ((rate1 != 3) && (rate2 != 3) && (rate3 != 3) && (rate4 != 3))
+                break;
+            }
+
+            if (double.TryParse(input1, out double rate1) && double.TryParse(input2, out double rate2) && double.TryParse(input3, out double rate3) && double.TryParse(input4, out double rate4))
+            {
+                
+                if ((rate1 != 2) && (rate2 != 2) && (rate3 != 2) && (rate4 != 2))
                 {
-                    answer++;
+                    if ((rate1 != 3) && (rate2 != 3) && (rate3 != 3) && (rate4 != 3))
+                    {
+                        answer++;
+                    }
                 }
             }
 
