@@ -70,7 +70,7 @@ public class Program
     {
         bool answer = false;
 
-        if (y>=0 & y+Math.Abs(x)<=1)
+        if (y>=0 && y+Math.Abs(x)<=1)
         {
             answer=true;
         }
@@ -161,7 +161,7 @@ public class Program
 
         if (x<=-1)
         {answer=0;}
-        else if(-1<x & x<0)
+        else if(-1<x && x<0)
         {answer=1+x;}
         else
         {answer=1;}
@@ -174,7 +174,7 @@ public class Program
 
         if (x<=-1)
         {answer=1;}
-        else if(-1<x & x<=1)
+        else if(-1<x && x<=1)
         {answer=-x;}
         else
         {answer=-1;}
@@ -241,7 +241,7 @@ public class Program
             iteration++;
             Double.TryParse(Console.ReadLine(), NumberStyles.Any,new CultureInfo("en-US"), out double x);
             Double.TryParse(Console.ReadLine(),new CultureInfo("en-US"), out double y);
-            if (x*x+y*y<=r2*r2 & x*x+y*y>=r1*r1) answer++;
+            if (x*x+y*y<=r2*r2 && x*x+y*y>=r1*r1) answer++;
         }
         System.Console.WriteLine(answer);
         return answer;
@@ -270,7 +270,7 @@ public class Program
             iteration++;
             Double.TryParse(Console.ReadLine(), NumberStyles.Any,new CultureInfo("en-US"), out double x);
             Double.TryParse(Console.ReadLine(),new CultureInfo("en-US"), out double y);
-            if (x>=0 & y<=Math.Sin(x)) answer++;
+            if (y>=0 && x>=0 && y<=Math.Abs(Math.Sin(x)) && x<=Math.PI) answer++;
         }
         System.Console.WriteLine(answer);
         return answer;
@@ -286,8 +286,8 @@ public class Program
             iteration++;
             Double.TryParse(Console.ReadLine(), NumberStyles.Any,new CultureInfo("en-US"), out double x);
             Double.TryParse(Console.ReadLine(),new CultureInfo("en-US"), out double y);
-            if (x>0 & y>0) answer1++;
-            if (x<0 & y<0) answer3++;
+            if (x>0 && y>0) answer1++;
+            if (x<0 && y<0) answer3++;
         }
         System.Console.WriteLine(answer1);
         System.Console.WriteLine(answer3);
@@ -343,7 +343,7 @@ public class Program
             Double.TryParse(Console.ReadLine(),new CultureInfo("en-US"), out double b);
             Double.TryParse(Console.ReadLine(),new CultureInfo("en-US"), out double c);
             Double.TryParse(Console.ReadLine(),new CultureInfo("en-US"), out double d);
-            if(a!=2 & a!=3 & b!=2 & b!=3 & c!=2 & c!=3 & d!=2 & d!=3) answer++;
+            if(a!=2 && a!=3 && b!=2 && b!=3 && c!=2 && c!=3 && d!=2 && d!=3) answer++;
         }
         System.Console.WriteLine(answer);
         return answer;
