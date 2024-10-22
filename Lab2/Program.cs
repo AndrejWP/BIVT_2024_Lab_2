@@ -28,7 +28,7 @@ public class Program
         //program.Task_2_3(10);
         //program.Task_2_4(5, 1, 2);
         //program.Task_2_5(10, 30);
-        //program.Task_2_6(5);
+        program.Task_2_6(5);
         //program.Task_2_7(5);
         //program.Task_2_8(5);
         //program.Task_2_9(10);
@@ -287,7 +287,7 @@ public class Program
             x = double.Parse(Console.ReadLine());
             Console.WriteLine("Введите y");
             y = double.Parse(Console.ReadLine());
-            if (x>=0 && x<=double.Pi && y<=Math.Sin(x)) answer++;
+            if (x >= 0 && x <= double.Pi && y <= Math.Sin(x) && y >= 0) answer++;
         }
         // end
         Console.WriteLine(answer);
