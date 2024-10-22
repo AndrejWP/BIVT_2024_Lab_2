@@ -64,7 +64,7 @@ public class Program
         bool answer = false;
 
         // code here
-        if (Math.Sqrt(x * x + y * y) == 2)
+        if (Math.Abs(x*x + y*y - 2*2) <= 0.001)
         {
             answer = true;
         }
@@ -365,7 +365,7 @@ public class Program
         {
             double x = Convert.ToDouble((Console.ReadLine()));
             double y = Convert.ToDouble((Console.ReadLine()));
-            if (Math.Sin(x)>=y)
+            if ((x >= 0 && x <= Math.PI && y >= 0 && y <= Math.Sin(x)))
             {
                 answer++;
             }
@@ -609,7 +609,7 @@ public class Program
         {
             double weight = Double.Parse(Console.ReadLine());
             
-            if (weight >= 30.0)
+            if (weight < 30.0)
             {
                 answer += 0.2;
             }
