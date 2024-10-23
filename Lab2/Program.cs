@@ -246,7 +246,7 @@ public class Program
         {
             Console.Write($"Введите результат {i}-го спортсмена: ");
             double res = double.Parse(Console.ReadLine());
-            if (res >= norm) answer++;
+            if (res <= norm) answer++;
         }
         // end
 
