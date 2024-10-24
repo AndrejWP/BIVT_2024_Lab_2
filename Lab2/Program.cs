@@ -455,22 +455,27 @@ public class Program
         double answer = 0;
 
         // code here;
-        switch (type)
+        if (r < 0) answer = 0;
+        else
         {
-            case 0:
-                answer = r * r;
-                break;
-            case 1:
-                answer = Math.PI * r * r;
-                answer = Math.Round(answer, 2);
-                break;
-            case 2:
-                answer = Math.Sqrt(3) * r * r / 4;
-                answer = Math.Round(answer, 2);
-                break;
-            default:
-                answer = 0;
-                break;
+            switch (type)
+            {
+                case 0:
+                    answer = r * r;
+                    answer = Math.Round(answer, 2);
+                    break;
+                case 1:
+                    answer = Math.PI * r * r;
+                    answer = Math.Round(answer, 2);
+                    break;
+                case 2:
+                    answer = Math.Sqrt(3) * r * r / 4;
+                    answer = Math.Round(answer, 2);
+                    break;
+                default:
+                    answer = 0;
+                    break;
+            }
         }
         Console.WriteLine($"{answer}");
         // end
@@ -482,22 +487,30 @@ public class Program
         double answer = 0;
 
         // code here;
-        switch (type)
+        if (A < 0 || B < 0) answer = 0;
+        else
         {
-            case 0:
-                answer = A * B;
-                break;
-            case 1:
-                answer = Math.PI * Math.Abs(A * A - B * B);
-                answer = Math.Round(answer, 2);
-                break;
-            case 2:
-                answer = A / 2 * Math.Sqrt(B * B - A * A / 4);
-                answer = Math.Round(answer, 2);
-                break;
-            default:
-                answer = 0;
-                break;
+            switch (type)
+            {
+                case 0:
+                    answer = A * B;
+                    answer = Math.Round(answer, 2);
+                    break;
+                case 1:
+                    answer = Math.PI * Math.Abs(A * A - B * B);
+                    answer = Math.Round(answer, 2);
+                    break;
+                case 2:
+                    if (B > A / 2)
+                    {
+                        answer = A / 2 * Math.Sqrt(B * B - A * A / 4);
+                        answer = Math.Round(answer, 2);
+                    }
+                    break;
+                default:
+                    answer = 0;
+                    break;
+            }
         }
         Console.WriteLine($"{answer}");
         // end
