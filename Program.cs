@@ -362,7 +362,7 @@ public class Program
         {
             x = double.Parse(Console.ReadLine());
             y = double.Parse(Console.ReadLine());
-            if (y >= 0 && y <= Math.Abs(Math.Sin(x)))
+            if (y >= 0 && y < (Math.Sin(x)) && (x < Math.PI) && (x > 0))
             {
                 answer++;
             }
