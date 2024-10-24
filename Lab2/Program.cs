@@ -190,7 +190,7 @@ public class Program
         }
         // end
 
-return answer;
+        return answer;
     }
     public double Task_1_8(double x)
     {
@@ -372,6 +372,27 @@ return answer;
 
         // code here
 
+        double x, y;
+        for (int i = 0; i < n; i++)
+        {
+            double.TryParse(Console.ReadLine(), out x);
+            double.TryParse(Console.ReadLine(), out y);
+            if (x > 0 && y > 0)
+            {
+                Console.WriteLine("1");
+                answer1++;
+            }
+            if (x < 0 && y > 0)
+                Console.WriteLine("2");
+            if (x < 0 && y < 0)
+            {
+                Console.WriteLine("3");
+                answer3++;
+            }
+            if (x > 0 && y < 0)
+                Console.WriteLine("4");
+        }
+        Console.WriteLine($"{answer1}, {answer3}");
         // end
 
         return (answer1, answer3);
@@ -383,7 +404,7 @@ return answer;
 
         // code here
 
-for (int i = 1; i <= n; i++)
+        for (int i = 1; i <= n; i++)
         {
             double x = double.Parse(Console.ReadLine());
             double y = double.Parse(Console.ReadLine());
@@ -429,7 +450,7 @@ for (int i = 1; i <= n; i++)
             for (int j = 1; j <= 4; j++)
             {
                 int mark = int.Parse(Console.ReadLine());
-                if (mark == 2  mark == 3) x++;
+                if (mark == 2 || mark == 3) x++;
             }
             if (x == 0) answer++;
         }
@@ -486,7 +507,7 @@ for (int i = 1; i <= n; i++)
 
         // code here;
 
-        if (A <= 0  B <= 0) return 0;
+        if (A <= 0 || B <= 0) return 0;
         switch (type)
         {
             case 0:
@@ -510,13 +531,13 @@ for (int i = 1; i <= n; i++)
     {
 
         double answer = 0;
-        string flag;
+        string input;
         double s = 0, n = 0;
         while (true)
         {
-            flag = Console.ReadLine();
-            if (flag == "stop") break;
-            s += int.Parse(flag);
+            input = Console.ReadLine();
+            if (input == "stop") break;
+            s += int.Parse(input);
             n++;
         }
         answer = s / n;
@@ -551,17 +572,17 @@ for (int i = 1; i <= n; i++)
     {
         int answer = 0;
 
-// r1 - внутренний, r2 - внешний
+        // r1 - внутренний, r2 - внешний
         double x, y, s;
-        string stop1, stop2;
+        string inputX, inputY;
         while (true)
         {
-            stop1 = Console.ReadLine();
-            if (stop1 == "stop") break;
-            stop2 = Console.ReadLine();
-            if (stop2 == "stop") break;
-            double.TryParse(stop1, out x);
-            double.TryParse(stop2, out y);
+            inputX = Console.ReadLine();
+            if (inputX == "stop") break;
+            inputY = Console.ReadLine();
+            if (inputY == "stop") break;
+            double.TryParse(inputX, out x);
+            double.TryParse(inputY, out y);
             s = x * x + y * y;
             if (s >= r1 * r1 && s <= r2 * r2) answer++;
         }
@@ -592,20 +613,19 @@ for (int i = 1; i <= n; i++)
     }
     public (int, int) Task_3_7()
     {
-        int answer1= 0, answer3 = 0, n = 0;
+        int answer1 = 0, answer3 = 0, n = 0;
 
         // code here
         double x, y;
-        string stop1, stop2;
+        string inputX, inputY;
         while (true)
         {
-            stop1 = Console.ReadLine();
-            if (stop1 == "stop") break;
-            stop2 = Console.ReadLine();
-            if (stop2 == "stop") break;
-            double.TryParse(stop1, out x);
-            double.TryParse(stop2, out y);
-
+            inputX = Console.ReadLine();
+            if (inputX == "stop") break;
+            inputY = Console.ReadLine();
+            if (inputY == "stop") break;
+            double.TryParse(inputX, out x);
+            double.TryParse(inputY, out y);
             if (x > 0 && y > 0) answer1++;
             else if (x < 0 && y < 0) answer3++;
         }
