@@ -670,7 +670,7 @@ public class Program
             }
             double x = Convert.ToDouble(input);
             double y = Convert.ToDouble((Console.ReadLine()));
-            if (Math.Sin(x) >= y)
+            if ((x >= 0 && x <= Math.PI && y >= 0 && y <= Math.Sin(x)))
             {
                 answer++;
             }
