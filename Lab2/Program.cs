@@ -30,7 +30,7 @@ public class Program
         //program.Task_2_4(5, 1, 2);
         //program.Task_2_5(10, 30);
         //program.Task_2_6(5);
-        program.Task_2_7(5);
+        //program.Task_2_7(5);
         //program.Task_2_8(10);
         //program.Task_2_9(10);
         //program.Task_2_10(10);
@@ -318,8 +318,7 @@ public class Program
                 count += 1;
             }
         }
-        answer = (count + 4) / 5;
-        answer = (int)answer;
+        answer = count * 200 / 1000;
         Console.WriteLine(answer);
         // for test input in console: 27.5, 32.5, 30, 22.3, 26.8, 36.6, 30, 29.9, 20.1, 28.5
 
@@ -357,7 +356,7 @@ public class Program
         for (int i = 0;i < n; ++i)
         {
             a = double.Parse(Console.ReadLine());
-            if ( a >= norm)
+            if ( a <= norm)
             {
                 answer++;
             }
@@ -535,19 +534,29 @@ public class Program
         double answer = 0;
 
         // code here;
-        if (type == 0)
+        if (r <= 0)
         {
-            answer = r * r;
+            answer = 0;
         }
-        if (type == 1)
+        else
         {
-            answer = Math.PI * r * r;
+            switch (type)
+            {
+
+                case 0:
+                    answer = r * r;
+                    break;
+                case 1:
+                    answer = Math.PI * r * r;
+                    break;
+                case 2:
+                    answer = r * r * Math.Sqrt(3) / 4;
+                    break;
+                default:
+                    Console.WriteLine("Некорректный выбор");
+                    break;
+            }
         }
-        if (type == 2)
-        {
-            answer = (Math.Sqrt(3) * r * r) / 4;
-        }
-        answer = Math.Round(answer,2);
         // end
 
         return answer;
@@ -557,33 +566,28 @@ public class Program
         double answer = 0;
 
         // code here;
-        if (type < 0 || type > 2)
+        if (A > 0 && B > 0)
         {
-            return 0;
-        }
-        if (A <= 0)
-        {
-            return 0;
-        }
-        if (B <= 0)
-        {
-            return 0;
-        }
-        if (type == 0)
-        {
-            answer = A * B;
-        }
-        if (type == 1)
-        {
+            switch (type)
+            {
+                case 0:
+                    answer = (A * B);
+                    answer = Math.Round(answer, 2);
+                    break;
+                case 1:
+                    answer = Math.PI * Math.Abs(A * A - B * B);
+                    answer = Math.Round(answer, 2);
+                    break;
+                case 2:
+                    answer = A / 2 * Math.Sqrt(B * B - A * A / 4);
+                    answer = Math.Round(answer, 2);
+                    break;
+                default:
+                    answer = 0;
+                    break;
 
-            answer = Math.PI * Math.Abs(B * B - A * A);
+            }
         }
-        if (type == 2)
-        {
-            double h = Math.Sqrt(B * B - A * A / 4);
-            answer = A * h / 2;
-        }
-        answer = Math.Round(answer, 2);
         // end
 
         return answer;
@@ -679,7 +683,7 @@ public class Program
             {
                 break;
             }
-            if (double.Parse(input) >= norm)
+            if (double.Parse(input) <= norm)
             {
                 answer++;
             }
