@@ -28,7 +28,7 @@ public class Program
         //program.Task_2_3(10);
         //program.Task_2_4(5, 1, 2);
         //program.Task_2_5(10, 30);
-        //program.Task_2_6(5);
+        program.Task_2_6(5);
         //program.Task_2_7(5);
         //program.Task_2_8(3);
         //program.Task_2_9(6);
@@ -48,7 +48,7 @@ public class Program
         //program.Task_3_8();
         //program.Task_3_9();
         //program.Task_3_10();
-        program.Task_3_11();
+        //program.Task_3_11();
         //program.Task_3_12(10, 0);
         //program.Task_3_13(10, 5, 0);
     }
@@ -362,7 +362,7 @@ public class Program
         {
             x = double.Parse(Console.ReadLine());
             y = double.Parse(Console.ReadLine());
-            if (y >= 0 && y < (Math.Sin(x)) && (x < Math.PI) && (x > 0))
+            if (y >= 0 && y < Math.Sin(x) && x < Math.PI && x > 0)
             {
                 answer++;
             }
