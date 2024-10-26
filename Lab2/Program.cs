@@ -1,4 +1,6 @@
+
     using Microsoft.VisualBasic;
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -369,6 +371,7 @@ public class Program
             double.TryParse(Console.ReadLine(), CultureInfo.InvariantCulture, out x);
             double.TryParse(Console.ReadLine(), CultureInfo.InvariantCulture, out y);
 
+
             if (Math.Sqrt(x * x + y * y) < answerLength)
             {
                 answerLength = Math.Sqrt(x * x + y * y);
@@ -378,6 +381,7 @@ public class Program
         answerLength = Math.Round(answerLength, 2);
         Console.WriteLine($"Точка {answer} : {answerLength}");
         // end
+
 
         return (answer, answerLength);
     }
@@ -652,6 +656,7 @@ public class Program
         // code here
 
         // end
+
 
         return (answer, answerLength);
     }
