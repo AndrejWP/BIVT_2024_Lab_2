@@ -142,7 +142,7 @@ public class Program
         bool answer = false;
 
         // code here
-        //r круг s квадрат
+        //r РєСЂСѓРі s РєРІР°РґСЂР°С‚
         double S = 0, R = 0;
         R = 2 * Math.Sqrt(r / Math.PI);
         S = Math.Sqrt(s * 2.0);
